@@ -309,7 +309,7 @@ namespace SparseRREF {
 		}
 
 		// conversion functions
-		template <typename U = T> requires std::is_integral_v<U> || std::is_same_v<U, int_t>
+		template <typename U = T> requires ((std::is_integral_v<U> || std::is_same_v<U, int_t>) && !std::is_same_v<U, rat_t>)
 		operator sparse_vec<rat_t, index_t>() {
 			sparse_vec<rat_t, index_t> result;
 			result.reserve(_nnz);
@@ -321,7 +321,7 @@ namespace SparseRREF {
 			return result;
 		}
 
-		template <typename U = T> requires std::is_integral_v<U>
+		template <typename U = T> requires (std::is_integral_v<U> && !std::is_same_v<U, int_t>)
 		operator sparse_vec<int_t, index_t>() {
 			sparse_vec<int_t, index_t> result;
 			result.reserve(_nnz);
