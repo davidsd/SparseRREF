@@ -847,7 +847,7 @@ namespace SparseRREF {
 					<< 100 * (double)now_nnz / (mat.nrow * mat.ncol) << "%"
 					<< "  speed: " << std::setprecision(6) << std::setw(6)
 					<< (status - old_status) / SparseRREF::usedtime(clock_begin, SparseRREF::clocknow())
-					<< " row/s    \r" << std::flush;
+					<< " row/s" << std::endl;
 				clock_begin = SparseRREF::clocknow();
 				old_status = status;
 				print_once = false;
@@ -1294,7 +1294,7 @@ namespace SparseRREF {
 						<< 100 * (double)now_nnz / (mat.nrow * mat.ncol) << "%"
 						<< "  speed: " << std::setprecision(6) << std::setw(8) <<
 						((pr - oldpr) / usedtime(start, end))
-						<< " col/s    \r" << std::flush;
+						<< " col/s" << std::endl;
 					oldpr = pr;
 					start = end;
 					print_once = false;
@@ -1632,7 +1632,7 @@ namespace SparseRREF {
 						<< 100 * (double)now_nnz / (mat.nrow * mat.ncol) << "%"
 						<< "  speed: " << std::setprecision(6) << std::setw(8) <<
 						((pr - oldpr) / SparseRREF::usedtime(start, end))
-						<< " col/s    \r" << std::flush;
+						<< " col/s" << std::endl;
 					oldpr = pr;
 					start = end;
 					print_once = false;
